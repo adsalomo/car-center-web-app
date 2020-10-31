@@ -8,6 +8,5 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Instalación y ejecución
 Ingrese al directorio car-center-web-app y ejecute los siguientes comando
 * npm install
-luego,
 * ng serve -o
 
