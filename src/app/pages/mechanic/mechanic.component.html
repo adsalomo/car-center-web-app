@@ -10,25 +10,25 @@
             <div class="card-body">
                 <form autocomplete="off" (ngSubmit)="save(mechanicForm)" #mechanicForm="ngForm">
                     <div class="row">
-                        <div class="col-xl-6 col-md-6">
+                        <div class="col-xl-4 col-md-4">
                             <div class="form-group row">
                                 <label class="col-12 col-form-label">Tipo documento</label>
-                                <!--<div class="col-12">
-                                    <select [class.is-invalid]="country.invalid && country.touched"
-                                        [ngModel]="user.country" [disabled]="countries.length === 0"
-                                        class="form-control" name="country" required #country="ngModel">
-                                        <option *ngFor="let country of countries" [value]="country.code">
-                                            {{country.name}}
+                                <div class="col-12">
+                                    <select [class.is-invalid]="documentTypeId.invalid && documentTypeId.touched"
+                                        [ngModel]="mechanic.documentTypeId" [disabled]="documentTypes.length === 0"
+                                        class="form-control" name="documentTypeId" required #documentTypeId="ngModel">
+                                        <option *ngFor="let doc of documentTypes" [value]="doc.id">
+                                            {{doc.name}}
                                         </option>
                                     </select>
-                                    <small *ngIf="country.invalid && country.touched"
+                                    <small *ngIf="documentTypeId.invalid && documentTypeId.touched"
                                         class="form-text text-danger">Seleccione un
-                                        país</small>
-                                </div>-->
+                                        tipo documento</small>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="col-xl-6 col-md-6">
+                        <div class="col-xl-4 col-md-4">
                             <div class="form-group row">
                                 <label class="col-12 col-form-label">Documento</label>
                                 <div class="col-12">
@@ -42,10 +42,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="row">
-                        <div class="col-xl-6 col-md-6">
+                        <div class="col-xl-4 col-md-4">
                             <div class="form-group row">
                                 <label class="col-12 col-form-label">Primer nombre</label>
                                 <div class="col-12">
@@ -59,8 +57,10 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="col-xl-6 col-md-6">
+                    <div class="row">
+                        <div class="col-xl-4 col-md-4">
                             <div class="form-group row">
                                 <label class="col-12 col-form-label">Segundo nombre</label>
                                 <div class="col-12">
@@ -74,10 +74,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="row">
-                        <div class="col-xl-6 col-md-6">
+                        <div class="col-xl-4 col-md-4">
                             <div class="form-group row">
                                 <label class="col-12 col-form-label">Primer apellido</label>
                                 <div class="col-12">
@@ -92,7 +90,7 @@
                             </div>
                         </div>
 
-                        <div class="col-xl-6 col-md-6">
+                        <div class="col-xl-4 col-md-4">
                             <div class="form-group row">
                                 <label class="col-12 col-form-label">Segundo apellido</label>
                                 <div class="col-12">
@@ -109,7 +107,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-xl-6 col-md-6">
+                        <div class="col-xl-4 col-md-4">
                             <div class="form-group row">
                                 <label class="col-12 col-form-label">Celular</label>
                                 <div class="col-12">
@@ -123,7 +121,7 @@
                             </div>
                         </div>
 
-                        <div class="col-xl-6 col-md-6">
+                        <div class="col-xl-4 col-md-4">
                             <div class="form-group row">
                                 <label class="col-12 col-form-label">Dirección</label>
                                 <div class="col-12">
@@ -137,10 +135,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="row">
-                        <div class="col-xl-6 col-md-6">
+                        <div class="col-xl-4 col-md-4">
                             <div class="form-group row">
                                 <label class="col-12 col-form-label">Email</label>
                                 <div class="col-12">
@@ -153,7 +149,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
 
                     <div class=" row">
@@ -167,5 +162,44 @@
             </div>
         </div>
     </div>
+</div>
 
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Listado mecanicos</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive" *ngIf="mechanics.length > 0">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Tipo documento</th>
+                        <th>Documento</th>
+                        <th>Primer nombre</th>
+                        <th>Segundo nombre</th>
+                        <th>Primer apellido</th>
+                        <th>Segundo apellido</th>
+                        <th>Celular</th>
+                        <th>Dirección</th>
+                        <th>Email</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let mechanic of mechanics">
+                        <td>{{ mechanic.documentTypeName }}</td>
+                        <td>{{ mechanic.document }}</td>
+                        <td>{{ mechanic.firstName }}</td>
+                        <td>{{ mechanic.secondName }}</td>
+                        <td>{{ mechanic.surName }}</td>
+                        <td>{{ mechanic.secondSurName }}</td>
+                        <td>{{ mechanic.cellPhone }}</td>
+                        <td>{{ mechanic.address }}</td>
+                        <td>{{ mechanic.email }}</td>
+                        <td>{{ mechanic.state }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
