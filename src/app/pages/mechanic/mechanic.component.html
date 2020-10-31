@@ -1,20 +1,171 @@
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Mecanicos</h1>
-    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-        <i class="fas fa-download fa-sm text-white-50"></i>Generate Report
-    </a>
 </div>
 <div class="row">
-    <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Crear nuevo mecánico</h6>
-        </div>
-        <div class="card-body">
-            <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce CSS bloat and poor
-                page performance. Custom CSS classes are used to create custom components and custom utility
-                classes.</p>
-            <p class="mb-0">Before working with this theme, you should become familiar with the Bootstrap framework,
-                especially the utility classes.</p>
+    <div class="col-xl-12">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Crear nuevo mecánico</h6>
+            </div>
+            <div class="card-body">
+                <form autocomplete="off" (ngSubmit)="save(mechanicForm)" #mechanicForm="ngForm">
+                    <div class="row">
+                        <div class="col-xl-6 col-md-6">
+                            <div class="form-group row">
+                                <label class="col-12 col-form-label">Tipo documento</label>
+                                <!--<div class="col-12">
+                                    <select [class.is-invalid]="country.invalid && country.touched"
+                                        [ngModel]="user.country" [disabled]="countries.length === 0"
+                                        class="form-control" name="country" required #country="ngModel">
+                                        <option *ngFor="let country of countries" [value]="country.code">
+                                            {{country.name}}
+                                        </option>
+                                    </select>
+                                    <small *ngIf="country.invalid && country.touched"
+                                        class="form-text text-danger">Seleccione un
+                                        país</small>
+                                </div>-->
+                            </div>
+                        </div>
+
+                        <div class="col-xl-6 col-md-6">
+                            <div class="form-group row">
+                                <label class="col-12 col-form-label">Documento</label>
+                                <div class="col-12">
+                                    <input class="form-control" name="document"
+                                        [class.is-invalid]="document.invalid && document.touched" pattern="^[0-9]*$"
+                                        [ngModel]="mechanic.document" type="text" required minlength="6" maxlength="10"
+                                        placeholder="Documento" #document="ngModel">
+                                    <small *ngIf="document.invalid && document.touched"
+                                        class="form-text text-danger">Número documento debe ser mayor o igual a 6
+                                        dígitos</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xl-6 col-md-6">
+                            <div class="form-group row">
+                                <label class="col-12 col-form-label">Primer nombre</label>
+                                <div class="col-12">
+                                    <input class="form-control" name="firstName"
+                                        [class.is-invalid]="firstName.invalid && firstName.touched"
+                                        [ngModel]="mechanic.firstName" type="text" required minlength="3" maxlength="30"
+                                        placeholder="Primer nombre" #firstName="ngModel">
+                                    <small *ngIf="firstName.invalid && firstName.touched"
+                                        class="form-text text-danger">Primer nombre debe ser mayor o igual a 3
+                                        dígitos</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-6 col-md-6">
+                            <div class="form-group row">
+                                <label class="col-12 col-form-label">Segundo nombre</label>
+                                <div class="col-12">
+                                    <input class="form-control" name="secondName"
+                                        [class.is-invalid]="secondName.invalid && secondName.touched"
+                                        [ngModel]="mechanicsecondName" type="text" minlength="3" maxlength="30"
+                                        placeholder="Segundo nombre" #secondName="ngModel">
+                                    <small *ngIf="secondName.invalid && secondName.touched"
+                                        class="form-text text-danger">Segundo nombre debe ser mayor o igual a 3
+                                        dígitos</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xl-6 col-md-6">
+                            <div class="form-group row">
+                                <label class="col-12 col-form-label">Primer apellido</label>
+                                <div class="col-12">
+                                    <input class="form-control" name="surName"
+                                        [class.is-invalid]="surName.invalid && surName.touched"
+                                        [ngModel]="mechanic.surName" type="text" required minlength="3" maxlength="30"
+                                        placeholder="Primer apellido" #surName="ngModel">
+                                    <small *ngIf="surName.invalid && surName.touched"
+                                        class="form-text text-danger">Primer apellido debe ser mayor o igual a 3
+                                        dígitos</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-6 col-md-6">
+                            <div class="form-group row">
+                                <label class="col-12 col-form-label">Segundo apellido</label>
+                                <div class="col-12">
+                                    <input class="form-control" name="secondSurName"
+                                        [class.is-invalid]="secondSurName.invalid && secondSurName.touched"
+                                        [ngModel]="mechanic.secondSurName" type="text" minlength="3" maxlength="30"
+                                        placeholder="Segundo apellido" #secondSurName="ngModel">
+                                    <small *ngIf="secondSurName.invalid && secondSurName.touched"
+                                        class="form-text text-danger">Número documentos debe ser mayor o igual a 3
+                                        dígitos</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xl-6 col-md-6">
+                            <div class="form-group row">
+                                <label class="col-12 col-form-label">Celular</label>
+                                <div class="col-12">
+                                    <input class="form-control" name="cellPhone" pattern="^[0-9]*$"
+                                        [class.is-invalid]="cellPhone.invalid && cellPhone.touched"
+                                        [ngModel]="mechanic.cellPhone" type="text" required minlength="10"
+                                        maxlength="10" placeholder="Celular" #cellPhone="ngModel">
+                                    <small *ngIf="cellPhone.invalid && cellPhone.touched"
+                                        class="form-text text-danger">Debe ingresar un número de celular válido</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-6 col-md-6">
+                            <div class="form-group row">
+                                <label class="col-12 col-form-label">Dirección</label>
+                                <div class="col-12">
+                                    <input class="form-control" name="address"
+                                        [class.is-invalid]="address.invalid && address.touched"
+                                        [ngModel]="mechanic.address" type="text" required minlength="3" maxlength="200"
+                                        placeholder="Dirección" #address="ngModel">
+                                    <small *ngIf="address.invalid && address.touched"
+                                        class="form-text text-danger">Dirección debe ser mayor o igual a 3
+                                        dígitos</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xl-6 col-md-6">
+                            <div class="form-group row">
+                                <label class="col-12 col-form-label">Email</label>
+                                <div class="col-12">
+                                    <input class="form-control" name="email"
+                                        [class.is-invalid]="email.invalid && email.touched" [ngModel]="mechanic.email"
+                                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" type="text" required
+                                        maxlength="100" placeholder="Email" #email="ngModel">
+                                    <small *ngIf="email.invalid && email.touched" class="form-text text-danger">Debe
+                                        ingresar un email válido</small>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class=" row">
+                        <div class="col-xl-12 col-md-12">
+                            <button type="submit" class="btn btn-primary">
+                                Guardar
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
+
 </div>
