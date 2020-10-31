@@ -17,6 +17,9 @@ export class AssignmentComponent implements OnInit {
     this.getMecanics();
   }
 
+  /**
+   * Obtiene los mecanicos disponibles
+   */
   private getMecanics() {
     this.mechanicService.getAvailableMechanics()
       .subscribe((resp: Mechanic[]) => {

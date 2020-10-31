@@ -21,6 +21,7 @@
                                             {{doc.name}}
                                         </option>
                                     </select>
+                                    <small class="form-text text-success">*Requerido</small>
                                     <small *ngIf="documentTypeId.invalid && documentTypeId.touched"
                                         class="form-text text-danger">Seleccione un
                                         tipo documento</small>
@@ -36,6 +37,7 @@
                                         [class.is-invalid]="document.invalid && document.touched" pattern="^[0-9]*$"
                                         [ngModel]="mechanic.document" type="text" required minlength="6" maxlength="10"
                                         placeholder="Documento" #document="ngModel">
+                                    <small class="form-text text-success">*Requerido</small>
                                     <small *ngIf="document.invalid && document.touched"
                                         class="form-text text-danger">Número documento debe ser mayor o igual a 6
                                         dígitos</small>
@@ -51,6 +53,7 @@
                                         [class.is-invalid]="firstName.invalid && firstName.touched"
                                         [ngModel]="mechanic.firstName" type="text" required minlength="3" maxlength="30"
                                         placeholder="Primer nombre" #firstName="ngModel">
+                                    <small class="form-text text-success">*Requerido</small>
                                     <small *ngIf="firstName.invalid && firstName.touched"
                                         class="form-text text-danger">Primer nombre debe ser mayor o igual a 3
                                         dígitos</small>
@@ -83,6 +86,7 @@
                                         [class.is-invalid]="surName.invalid && surName.touched"
                                         [ngModel]="mechanic.surName" type="text" required minlength="3" maxlength="30"
                                         placeholder="Primer apellido" #surName="ngModel">
+                                    <small class="form-text text-success">*Requerido</small>
                                     <small *ngIf="surName.invalid && surName.touched"
                                         class="form-text text-danger">Primer apellido debe ser mayor o igual a 3
                                         dígitos</small>
@@ -115,6 +119,7 @@
                                         [class.is-invalid]="cellPhone.invalid && cellPhone.touched"
                                         [ngModel]="mechanic.cellPhone" type="text" required minlength="10"
                                         maxlength="10" placeholder="Celular" #cellPhone="ngModel">
+                                    <small class="form-text text-success">*Requerido</small>
                                     <small *ngIf="cellPhone.invalid && cellPhone.touched"
                                         class="form-text text-danger">Debe ingresar un número de celular válido</small>
                                 </div>
@@ -129,6 +134,7 @@
                                         [class.is-invalid]="address.invalid && address.touched"
                                         [ngModel]="mechanic.address" type="text" required minlength="3" maxlength="200"
                                         placeholder="Dirección" #address="ngModel">
+                                    <small class="form-text text-success">*Requerido</small>
                                     <small *ngIf="address.invalid && address.touched"
                                         class="form-text text-danger">Dirección debe ser mayor o igual a 3
                                         dígitos</small>
@@ -144,6 +150,7 @@
                                         [class.is-invalid]="email.invalid && email.touched" [ngModel]="mechanic.email"
                                         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" type="text" required
                                         maxlength="100" placeholder="Email" #email="ngModel">
+                                    <small class="form-text text-success">*Requerido</small>
                                     <small *ngIf="email.invalid && email.touched" class="form-text text-danger">Debe
                                         ingresar un email válido</small>
                                 </div>

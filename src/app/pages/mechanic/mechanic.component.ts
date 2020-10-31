@@ -30,6 +30,9 @@ export class MechanicComponent implements OnInit {
     this.getMecanics();
   }
 
+  /**
+   * Obtiene listado de mecanicos
+   */
   private getMecanics() {
     this.mechanicService.getAll()
       .subscribe((resp: Mechanic[]) => {
@@ -37,6 +40,10 @@ export class MechanicComponent implements OnInit {
       })
   }
 
+  /**
+   * Guarda los registros
+   * @param mechanicForm Form view
+   */
   save(mechanicForm: NgForm) {
     if (mechanicForm.invalid) {
       Object.values(mechanicForm.controls)
