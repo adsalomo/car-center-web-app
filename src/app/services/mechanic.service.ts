@@ -11,10 +11,14 @@ export class MechanicService {
   constructor(private http: HttpClient) { }
 
   save(mechanic: Mechanic) {
-    return this.http.post(`${environment.apiUrl}/mechanic`, mechanic);
+    return this.http.post(`${environment.apiUrl}mechanic`, mechanic);
   }
 
   getAll() {
-    return this.http.get(`${environment.apiUrl}/mechanic`);
+    return this.http.get(`${environment.apiUrl}mechanic`);
+  }
+
+  getAvailableMechanics() {
+    return this.http.get(`${environment.apiUrl}mechanic/available-mechanics`);
   }
 }

@@ -9,7 +9,8 @@ export default class Mechanic {
     cellPhone: string;
     address: string;
     email: string;
-    state: string
+    state: string;
+    timeWorked: number;
 
     constructor(document?: number,
         documentTypeId?: number,
@@ -21,7 +22,8 @@ export default class Mechanic {
         cellPhone?: string,
         address?: string,
         email?: string,
-        state?: string) {
+        state?: string,
+        timeWorked?: number) {
         this.document = document;
         this.documentTypeId = documentTypeId;
         this.documentTypeName = documentTypeName;
@@ -33,5 +35,6 @@ export default class Mechanic {
         this.address = address;
         this.email = email;
         this.state = state;
+        this.timeWorked = timeWorked;
     }
 }

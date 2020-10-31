@@ -1,1 +1,44 @@
-<p>assignment works!</p>
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Mecanicos disponibles para asignación de mantenimientos</h1>
+</div>
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Listado mecanicos ordenados por prioridad</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive" *ngIf="mechanics.length > 0">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Tiempo trabajado último mes (Minutos)</th>
+                        <th>Tipo documento</th>
+                        <th>Documento</th>
+                        <th>Primer nombre</th>
+                        <th>Segundo nombre</th>
+                        <th>Primer apellido</th>
+                        <th>Segundo apellido</th>
+                        <th>Celular</th>
+                        <th>Dirección</th>
+                        <th>Email</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let mechanic of mechanics">
+                        <td>{{ mechanic.timeWorked }}</td>
+                        <td>{{ mechanic.documentTypeName }}</td>
+                        <td>{{ mechanic.document }}</td>
+                        <td>{{ mechanic.firstName }}</td>
+                        <td>{{ mechanic.secondName }}</td>
+                        <td>{{ mechanic.surName }}</td>
+                        <td>{{ mechanic.secondSurName }}</td>
+                        <td>{{ mechanic.cellPhone }}</td>
+                        <td>{{ mechanic.address }}</td>
+                        <td>{{ mechanic.email }}</td>
+                        <td>{{ mechanic.state }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
